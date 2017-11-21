@@ -19,9 +19,10 @@ public class TriCount {
                     OutputCollector<Text, IntWritable> output, Reporter rep) throws IOException {
       String line = value.toString();
       int i = 0;
-      while(i < line.length() - 3) {
-        trigram.set(line.substring(i,i+2));
+      while(i < line.length()-3) {
+        trigram.set(line.substring(i, i+3));
         output.collect(trigram, one);
+        i++;
       }
     }
   }
